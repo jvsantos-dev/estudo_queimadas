@@ -1,6 +1,11 @@
 from utils.functions import get_queimadas_clima, enviar_email, acionar_drone_via_api
 import json
 
+# Integrantes do grupo:
+# João Victor Oliveira Santos 557948
+# Matheus Alcântara Estevão 558193
+# Nicolle Pellegrino Jelinski 558610
+
 # Carrega os locais monitorados
 with open('D:/Desktop/EstudoQueimadas/json/places.json', 'r', encoding='utf-8') as file:
     dados = json.load(file)
