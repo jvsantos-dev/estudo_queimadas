@@ -67,3 +67,26 @@ Alguns ajustes são necessários para rodar o projeto corretamente:
     Envio de e-mails: na função enviar_email, insira seu e-mail, senha e destinatário manualmente.
 
 Todos esses pontos estão comentados no código como # ⚠️ AJUSTE NECESSÁRIO.
+
+## 🔐 Você precisa usar uma senha de app do Google
+
+Para a funcao de enviar email funcionar:
+📋 Requisitos:
+
+    Verificação em duas etapas ativada na sua conta Google
+
+    Acesso ao painel de senhas de app
+
+✅ Passo a passo para gerar a senha correta:
+
+    Acesse: https://myaccount.google.com/apppasswords
+
+    Faça login na sua conta (se solicitado)
+
+    Em “Selecionar aplicativo”, escolha Mail
+
+    Em “Selecionar dispositivo”, escolha Outro e digite por exemplo python_script
+
+    Clique em Gerar
+
+    Copie a senha de 16 dígitos (sem espaços) — essa é a senha que você vai usar no Python
