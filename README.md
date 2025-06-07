@@ -56,16 +56,6 @@ queimadas/
 
 ---
 
-## 🚨 Cálculo do Risco de Incêndio
-
-O risco é calculado com uma pontuação simples:
-
-```python
-risco = 0
-if temperatura > 30: risco += 2
-if umidade < 30: risco += 2
-if vento > 15: risco += 1
-
 ## ⚠️ Avisos
 
 Alguns ajustes são necessários para rodar o projeto corretamente:
