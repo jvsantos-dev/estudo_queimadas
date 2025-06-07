@@ -7,7 +7,8 @@ import json
 # Nicolle Pellegrino Jelinski 558610
 
 # Carrega os locais monitorados
-with open('D:/Desktop/EstudoQueimadas/json/places.json', 'r', encoding='utf-8') as file:
+# Pode mudar dependendo do local onde o arquivo JSON está salvo
+with open(r'D:\Downloads\EstudoQueimadas\json\places.json', 'r', encoding='utf-8') as file:
     dados = json.load(file)
 
 # Checa o primeiro estado (ou todos, se quiser)
@@ -35,10 +36,12 @@ for estado, locais in dados.items():
                 f"Ação: Drone acionado para verificação."
             )
             # Envia o alerta por email
+            # Aqui é só mudar para as suas credenciais reais
             enviar_email(
-                senha='sua_senha_fake_ou_real',
-                destinatario='destinatario@example.com',
+                senha='Chandler99723030',
+                destinatario='joao.xpang.oliveira@gmail.com',
                 assunto='🚨 Alerta de Incêndio',
+                remetente='joaovictoroliveiradossantos18@gmail.com',
                 corpo=corpo_email
             )
             # Aciona o drone fictício

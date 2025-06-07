@@ -37,7 +37,9 @@ def enviar_email(senha:str, destinatario:str, assunto:str, corpo:str, remetente:
         servidor.quit()
 
 def get_queimadas_clima(lat, lon) -> dict:
-    config = read_yaml("D:\\Desktop\\EstudoQueimadas\\keys\\openweather.yaml")
+    # Pode mudar o caminho do arquivo de configuração
+    # Certifique-se de que o arquivo YAML contém a chave 'key' com a sua API Key do OpenWeather
+    config = read_yaml("D:\Downloads\EstudoQueimadas\keys\openweather.yaml")
     api_key = config['key']
     url = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={api_key}"
     response = requests.get(url)
