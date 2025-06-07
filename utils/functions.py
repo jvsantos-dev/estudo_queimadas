@@ -11,31 +11,36 @@ def read_yaml(path):
     with open(path, 'r', encoding='utf-8') as file:
         return yaml.safe_load(file)
 
-def enviar_email(senha:str, destinatario:str, assunto:str, corpo:str, remetente:str = 'email_fake@gmail.com'):
+def enviar_email(
+    senha: str,
+    destinatario: str,
+    assunto: str,
+    corpo: str,
+    remetente: str = 'seuemail@gmail.com'
+):
+    # ⚠️ Use uma senha de app do Gmail (não a sua senha normal)
+    
     # Monta a mensagem
     msg = MIMEMultipart()
     msg['From'] = remetente
     msg['To'] = destinatario
     msg['Subject'] = assunto
-    if corpo is None:
+
+    if not corpo:
         corpo = "Nenhum incêndio foi detectado."
 
-    # Corpo do email (pode ser HTML também)
     msg.attach(MIMEText(corpo, 'plain'))
 
-    # Configura o servidor SMTP do Gmail
-    servidor = smtplib.SMTP('smtp.gmail.com', 587)
-    servidor.starttls()  # ativa criptografia TLS
-
     try:
-        servidor.login(remetente, senha)
+        servidor = smtplib.SMTP('smtp.gmail.com', 587)
+        servidor.starttls()
+        servidor.login(remetente, senha)  # senha de app
         servidor.send_message(msg)
-        print('Email enviado com sucesso!')
+        print('✅ Email enviado com sucesso!')
     except Exception as e:
-        print(f'Erro ao enviar email: {e}')
+        print(f'❌ Erro ao enviar email: {e}')
     finally:
         servidor.quit()
-
 def get_queimadas_clima(lat, lon) -> dict:
     # Pode mudar o caminho do arquivo de configuração
     # Certifique-se de que o arquivo YAML contém a chave 'key' com a sua API Key do OpenWeather
